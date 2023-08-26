@@ -1,5 +1,6 @@
 package net.apepvp.simplejoindelay;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
@@ -15,6 +16,8 @@ public class SimpleJoinDelay extends JavaPlugin implements Listener {
     reloadConfig();
     joinDelaySeconds = getConfig().getInt("join_delay_seconds", 20);
     getServer().getPluginManager().registerEvents(this, this);
+    int pluginId = 19662;
+    Metrics metrics = new Metrics(this, pluginId);
   }
 
   @EventHandler
