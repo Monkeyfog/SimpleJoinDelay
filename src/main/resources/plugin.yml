@@ -1,0 +1,7 @@
+name: SimpleJoinDelay
+description: This plugin adds a 15 second delay until players can join after a startup, the plugin helps to reduce stress on server join!
+version: '${project.version}'
+main: net.apepvp.simplejoindelay.SimpleJoinDelay
+api-version: 1.20
+author: monkeyfog
+website: apepvp.net
