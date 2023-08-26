@@ -20,13 +20,13 @@ public class SimpleJoinDelay extends JavaPlugin implements Listener {
     getServer().getPluginManager().registerEvents(this, this);
     int pluginId = 19662;
     Metrics metrics = new Metrics(this, pluginId);
+    getServer().getScheduler().scheduleSyncDelayedTask(this, () -> serverJustStarted = false, joinDelaySeconds * 20);
   }
 
   @EventHandler
   public void onPlayerLogin(PlayerLoginEvent event) {
     if (serverJustStarted) {
       event.disallow(PlayerLoginEvent.Result.KICK_OTHER, playerKickMessage);
-      getServer().getScheduler().scheduleSyncDelayedTask(this, () -> serverJustStarted = false, joinDelaySeconds * 20);
     }
   }
 }
